@@ -33,3 +33,16 @@ burada extends sayesinde car classından super metodu sayesinde rengi aldık.
 
 spread rest op.
 dizi için [...number] object için ...user şeklinde tanımlanabilir
+
+destructuring metoduna daha detaylı bak 
+
+primitive tipler
+
+let primiteNumb = 20;
+let primiteNumb2 = primitiveNumb;
+
+let primitiveNumb2 = 30;
+
+console.log(primitiveNumb);
+console.log(primitiveNumb2);
+//ilk logda 20 son logda değiştirdiğimiz için 30 yazdırır
