@@ -46,3 +46,13 @@ let primitiveNumb2 = 30;
 console.log(primitiveNumb);
 console.log(primitiveNumb2);
 //ilk logda 20 son logda değiştirdiğimiz için 30 yazdırır
+
+refference types
+
+let object = {value : 20};
+let object2 = object
+
+object2.value = 30;
+
+console log ile object ve object2 yi yazdırdığımızda iki değer içinde 30 yazdırır spread metodu ile bu sorun çözülebilir
+let object2 = {...object} //spread
