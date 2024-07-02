@@ -56,3 +56,4 @@ object2.value = 30;
 
 console log ile object ve object2 yi yazdırdığımızda iki değer içinde 30 yazdırır spread metodu ile bu sorun çözülebilir
 let object2 = {...object} //spread
+
