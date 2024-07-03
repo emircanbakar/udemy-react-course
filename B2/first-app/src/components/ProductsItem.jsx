@@ -1,21 +1,20 @@
 import "./ProductItems.css"
 
-function ProductItem() {
-
-  const imageURL = "https://tarim.ibb.gov.tr/img/201681154251638537234067.jpg"
-  const productName = "Avokado"
-  const productPrice = "20"
+function ProductItem(props) {
+  console.log(props)
+ 
   return (
     <div className="product-item">
       <div>
         <img
-          src= {imageURL}
+          src= {props.imageURL}
           alt=""
         />
       </div>
       <div className="product-info">
-        <h2 className="product-title"> {productName} </h2>
-        <span className="product-price"> {productPrice} TL</span>
+        <h2 className="product-title"> {props.productName} </h2>
+        <span className="product-price"> {props.productPrice} TL</span>
+        <span> {props.author} </span>
       </div>
     </div>
   );
