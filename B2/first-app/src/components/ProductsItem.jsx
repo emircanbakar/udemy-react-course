@@ -1,20 +1,20 @@
 import "./ProductItems.css"
 
-function ProductItem(props) {
-  console.log(props)
+function ProductItem({product}) {
+  const {imageURL, productName, productPrice } = product;
+  console.log(product)
  
   return (
     <div className="product-item">
       <div>
         <img
-          src= {props.imageURL}
+          src= {imageURL}
           alt=""
         />
       </div>
       <div className="product-info">
-        <h2 className="product-title"> {props.productName} </h2>
-        <span className="product-price"> {props.productPrice} TL</span>
-        <span> {props.author} </span>
+        <h2 className="product-title"> {productName} </h2>
+        <span className="product-price"> {productPrice} TL</span>
       </div>
     </div>
   );
