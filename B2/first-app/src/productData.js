@@ -1,7 +1,4 @@
-import ProductItem from "./ProductsItem";
-import "./Products.css";
-
-const productData = [
+export const productData = [
   {
     productName: "Avokado",
     imageURL: "https://tarim.ibb.gov.tr/img/201681154251638537234067.jpg",
@@ -15,24 +12,3 @@ const productData = [
   },
 ];
 
-function Products() {
-  const author = "Emircan Bakar";
-  console.log(author);
-  return (
-    <div>
-      <h1>Products</h1>
-      <div className="products">
-        {productData.map((product) => {
-          return (
-            <ProductItem
-              key={product.productName}
-              product={product}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-export default Products;
