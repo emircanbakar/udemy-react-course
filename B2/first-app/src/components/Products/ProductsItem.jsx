@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProductInfo from "./ProductInfo";
 import "./ProductItems.css";
+import Counter from "../Counter";
 
 const ProductItem = ({ product }) => {
   const { imageURL, productName, productPrice } = product;
@@ -19,6 +20,7 @@ const ProductItem = ({ product }) => {
       <ProductInfo>
         <h2 className="product-title"> {title} </h2>
         <span className="product-price"> {productPrice} TL</span>
+        <Counter productPrice={productPrice}/>
         <br />
         <button onClick={clickHandler}>Güncelle</button>
       </ProductInfo>
