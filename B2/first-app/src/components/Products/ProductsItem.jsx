@@ -1,8 +1,15 @@
+import { useState } from "react";
 import ProductInfo from "./ProductInfo";
 import "./ProductItems.css";
 
 const ProductItem = ({ product }) => {
   const { imageURL, productName, productPrice } = product;
+  const [title, setTitle] = useState(productName);
+
+  const clickHandler = () => {
+    setTitle("Güncellendi")
+    console.log(productName, "güncellendi.")
+  };
 
   return (
     <div className="product-item">
@@ -10,8 +17,10 @@ const ProductItem = ({ product }) => {
         <img src={imageURL} alt="" />
       </div>
       <ProductInfo>
-        <h2 className="product-title"> {productName} </h2>
+        <h2 className="product-title"> {title} </h2>
         <span className="product-price"> {productPrice} TL</span>
+        <br />
+        <button onClick={clickHandler}>Güncelle</button>
       </ProductInfo>
     </div>
   );
