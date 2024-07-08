@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ProductForm.css";
 
-const ProductForm = () => {
+const ProductForm = (props) => {
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [imageURL, setImageUrl] = useState("");
@@ -45,11 +45,16 @@ const ProductForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     console.log("submitHandler çalıştı");
+
     const newProductData = {
       productName,
       productPrice,
       imageURL,
     };
+
+    // props.setProducts((prevState)=> [...prevState, newProductData])
+    props.onSaveProducts(newProductData);
+
     console.log(newProductData);
     setProductName("");
     setProductPrice("");
