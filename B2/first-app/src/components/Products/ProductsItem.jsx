@@ -20,7 +20,7 @@ const ProductItem = ({ product }) => {
       </div>
       <ProductInfo>
         <h2 className="product-title"> {title} </h2>
-        <span className="product-price"> {counter} TL</span>
+        <span className="product-price"> {counter}</span>
         <Counter
           productPrice={productPrice}
           counter={counter}

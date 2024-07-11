@@ -22,7 +22,7 @@ const ProductForm = (props) => {
     // });
   };
   const priceChangeHandler = (event) => {
-    setProductPrice(event.target.value);
+    setProductPrice(parseInt(event.target.value));
     // setProductData({
     //   ...productData,
     //   productPrice: event.target.value,
@@ -47,6 +47,7 @@ const ProductForm = (props) => {
     console.log("submitHandler çalıştı");
 
     const newProductData = {
+      id: props.products.length +1,
       productName,
       productPrice,
       imageURL,
