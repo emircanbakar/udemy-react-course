@@ -22,7 +22,8 @@ const ProductForm = (props) => {
     // });
   };
   const priceChangeHandler = (event) => {
-    setProductPrice(parseInt(event.target.value));
+    setProductPrice(event.target.value);
+    // setProductPrice(parseInt(event.target.value));
     // setProductData({
     //   ...productData,
     //   productPrice: event.target.value,
@@ -47,7 +48,7 @@ const ProductForm = (props) => {
     console.log("submitHandler çalıştı");
 
     const newProductData = {
-      id: props.products.length +1,
+      id: props.products.length + 1,
       productName,
       productPrice,
       imageURL,
@@ -90,8 +91,16 @@ const ProductForm = (props) => {
           value={imageURL}
         />
       </div>
-      <button className="product-form-buttons">Ürün Ekle</button>
-      <button className="product-form-buttons cancel" type="button" onClick={() => props.setIsOpen(false)} >Vazgeç</button> 
+      <div className="form-buttons">
+        <button className="product-form-buttons">Ürün Ekle</button>
+        <button
+          className="product-form-buttons cancel"
+          type="button"
+          onClick={() => props.setIsOpen(false)}
+        >
+          Vazgeç
+        </button>
+      </div>
     </form>
   );
 };

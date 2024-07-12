@@ -3,15 +3,19 @@ import ProductInfo from "./ProductInfo";
 import "./ProductItems.css";
 import Counter from "../Counter";
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, setProducts, products }) => {
   const { imageURL, productName, productPrice } = product;
   const [title, setTitle] = useState(productName);
-  const [counter, setCounter] = useState(productPrice);
+  const [counter, setCounter] = useState(Number(productPrice));
 
   const clickHandler = () => {
     setTitle("Güncellendi");
     console.log(productName, "güncellendi.");
   };
+
+  const deleteHandler = ( ) => {
+    setProducts(products.filter((item) => item.id !== product.id))
+  }
 
   return (
     <div className="product-item">
@@ -28,6 +32,7 @@ const ProductItem = ({ product }) => {
         />
         <br />
         <button onClick={clickHandler}>Güncelle</button>
+        <button onClick={deleteHandler} className="btn-delete" >Sil</button>
       </ProductInfo>
     </div>
   );

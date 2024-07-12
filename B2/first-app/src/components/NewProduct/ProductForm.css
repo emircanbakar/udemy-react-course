@@ -26,7 +26,7 @@
 }
 
 .product-form button{
-    flex-basis: 100%;
+
     margin-top: 10px;
     height: 30px;
 }
@@ -39,4 +39,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+.form-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    gap: 10px;
 }

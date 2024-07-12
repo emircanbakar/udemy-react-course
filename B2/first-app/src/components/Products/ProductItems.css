@@ -23,3 +23,7 @@
     font-size: 14px;
 }
 
+.btn-delete{
+    background-color: rgb(149, 0, 0);
+    margin-left: 10px;
+}
