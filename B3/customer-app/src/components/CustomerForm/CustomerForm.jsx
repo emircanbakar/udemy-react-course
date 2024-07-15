@@ -31,13 +31,14 @@ const CustomerForm = ({ addNewCustomer }) => {
     <form className="customer-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        className="customer-input"
+        className={`customer-input ${isValid ? "invalid" : ""}`}
+        //dinamik class mantığı
         placeholder="Add a new customer"
         onChange={nameInputChangeHandler}
         value={customerName}
-        style={{
-          backgroundColor: isValid ? "red" : "",
-        }}
+          // style={{
+          //   backgroundColor: isValid ? "red" : "",
+          // }}
       />
       <button>
         <i className="bi bi-plus-lg"></i>
