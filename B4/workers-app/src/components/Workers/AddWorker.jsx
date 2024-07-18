@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import Card from "../ui/Card";
+import Button from "../ui/Button";
 
 function AddWorker() {
+  const [employeeName, setEmployeeName] = useState("");
+  const [wage, setWage] = useState("")
+  const employeeChangeHandler = (e) =>{
+    setEmployeeName(e.target.value)
+  }
+  const wageChangeHandler = (e) =>{
+    setWage(e.target.value)
+  }
+
+  const addWorkerHandler = (e) =>{
+    e.preventDefault()
+    console.log(employeeName, wage)
+  }
   return (
-    <div>
-      <form className="flex flex-col gap-y-2">
+    <Card className="mt-8">
+      <form className="flex flex-col gap-y-2" onSubmit={addWorkerHandler}>
         <label htmlFor="name" className="font-medium">
           Çalışan İsmi
         </label>
@@ -12,6 +27,7 @@ function AddWorker() {
           id="name"
           className="max-w-[40rem] border mx-auto w-full p-2 "
           placeholder="Çalışan ismi giriniz."
+          onChange={employeeChangeHandler}
         />
         <label htmlFor="wage" className="font-medium">
           Maaş Miktari
@@ -21,10 +37,11 @@ function AddWorker() {
           className="max-w-[40rem] border mx-auto w-full p-2 "
           id="wage"
           placeholder="Maaş miktari giriniz."
+          onChange={wageChangeHandler}
         />
-        <button className="p-2 text-lg bg-teal-600 mt-2 text-white" >Ekle</button>
+        <Button type="submit" className="mt-2">Ekle</Button>
       </form>
-    </div>
+    </Card>
   );
 }
 
