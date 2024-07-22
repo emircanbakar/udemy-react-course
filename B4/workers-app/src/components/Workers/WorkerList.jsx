@@ -7,28 +7,30 @@ const WorkerList = (props) => {
     setWorkers(workers.filter((item) => item.id !== id));
   };
 
-  if(workers.length < 1){
+  if (workers.length < 1) {
     return;
   }
   return (
-    <Card className="mt-10">
-      <ul>
-        <li className="flex justify-between p-2">
-          <span className="font-bold">İsim</span>
-          <span className="font-bold">Maaş </span>
-        </li>
-        {workers.map((worker) => (
-          <li
-            className="flex justify-between cursor-pointer hover:shadow-xl p-2 transition-all"
-            key={worker.id}
-            onClick={()=> deleteWorker(worker.id)}
-          >
-            <span> {worker.name} </span>
-            <span className="text-teal-700 font-medium"> {worker.wage} </span>
+    <div>
+      <Card className="mt-10">
+        <ul>
+          <li className="flex justify-between p-2">
+            <span className="font-bold">İsim</span>
+            <span className="font-bold">Maaş </span>
           </li>
-        ))}
-      </ul>
-    </Card>
+          {workers.map((worker) => (
+            <li
+              className="flex justify-between cursor-pointer hover:shadow-xl p-2 transition-all"
+              key={worker.id}
+              onClick={() => deleteWorker(worker.id)}
+            >
+              <span> {worker.name} </span>
+              <span className="text-teal-700 font-medium"> {worker.wage} </span>
+            </li>
+          ))}
+        </ul>
+      </Card>
+    </div>
   );
 };
 
