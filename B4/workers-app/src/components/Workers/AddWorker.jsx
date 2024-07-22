@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
 
-function AddWorker() {
+function AddWorker(props) {
   const [employeeName, setEmployeeName] = useState("");
   const [wage, setWage] = useState("");
   const minWage = 5000;
@@ -21,9 +21,18 @@ function AddWorker() {
     if (+wage < minWage) {
       return;
     }
-    console.log(employeeName, wage);
+
     setEmployeeName("");
     setWage("");
+
+    props.setWorkers((prevState) => [
+      {
+        id: Math.floor(Math.random() * 1000),
+        name: employeeName,
+        wage: wage,
+      },
+      ...prevState,
+    ]);
   };
   return (
     <Card className="mt-8">
