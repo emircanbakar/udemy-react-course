@@ -6,7 +6,7 @@ const ErrorModal = (props) => {
     const {onConfirm, error} = props;
     const {message, title} = error;
     return (
-    <div className="error-modal">
+    <div className="error-modal ">
       <div
         className="backdrop-blur-sm  bg-white/30 fixed w-screen h-screen top-0"
         onClick={onConfirm}
