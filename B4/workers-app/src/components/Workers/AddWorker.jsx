@@ -1,32 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
 import ErrorModal from "../ui/ErrorModal";
-import Wrapper from "../Helpers/Wrapper";
+// import Wrapper from "../Helpers/Wrapper";
 
 function AddWorker(props) {
-  const [employeeName, setEmployeeName] = useState("");
-  const [wage, setWage] = useState("");
   const minWage = 5000;
   const [error, setError] = useState();
+  const nameInputRef = useRef();
+  const wageInputRef = useRef();
 
-  const employeeChangeHandler = (e) => {
-    setEmployeeName(e.target.value);
-  };
-  const wageChangeHandler = (e) => {
-    setWage(e.target.value);
-  };
+  // const employeeChangeHandler = (e) => {
+  //   setEmployeeName(e.target.value);
+  // };
+  // const wageChangeHandler = (e) => {
+  //   setWage(e.target.value);
+  // };
 
   const addWorkerHandler = (e) => {
+    
     e.preventDefault();
-    if (employeeName.trim().length === 0) {
+    const enteredWorker = nameInputRef.current.value
+    const enteredWage = wageInputRef.current.value
+    if (nameInputRef.current.value.trim().length === 0) {
       setError({
         title: "İsim Alanı Zorunludur!",
         message: "Lütfen bir isim giriniz.",
       });
       return;
     }
-    if (+wage < minWage) {
+    if (+wageInputRef.current.value < minWage) {
       setError({
         title: "Maaş Alanı Zorunludur!",
         message: `Lütfen ${minWage} değerinden büyük bir değer giriniz`,
@@ -34,20 +37,21 @@ function AddWorker(props) {
       return;
     }
 
-    setEmployeeName("");
-    setWage("");
-
     props.setWorkers((prevState) => [
       {
         id: Math.floor(Math.random() * 1000),
-        name: employeeName,
-        wage: wage,
+        name: enteredWorker,
+        wage: enteredWage,
       },
       ...prevState,
     ]);
+
+    nameInputRef.current.value = "";
+    wageInputRef.current.value = "";
   };
+
   const errorHandler = () => {
-    setError(null)
+    setError(null);
   };
 
   return (
@@ -63,8 +67,7 @@ function AddWorker(props) {
             id="name"
             className="max-w-[40rem] border mx-auto w-full p-2 "
             placeholder="Çalışan ismi giriniz."
-            onChange={employeeChangeHandler}
-            value={employeeName}
+            ref={nameInputRef}
           />
           <label htmlFor="wage" className="font-medium">
             Maaş Miktari
@@ -74,8 +77,7 @@ function AddWorker(props) {
             className="max-w-[40rem] border mx-auto w-full p-2 "
             id="wage"
             placeholder="Maaş miktari giriniz."
-            onChange={wageChangeHandler}
-            value={wage}
+            ref={wageInputRef}
           />
           <Button type="submit" className="mt-2">
             Ekle

@@ -12,7 +12,7 @@ const WorkerList = (props) => {
   }
   return (
     <div>
-      <Card className="mt-10">
+      <Card className="mt-10 p-5">
         <ul>
           <li className="flex justify-between p-2">
             <span className="font-bold">İsim</span>
