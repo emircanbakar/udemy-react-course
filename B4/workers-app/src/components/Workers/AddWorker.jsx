@@ -10,18 +10,11 @@ function AddWorker(props) {
   const nameInputRef = useRef();
   const wageInputRef = useRef();
 
-  // const employeeChangeHandler = (e) => {
-  //   setEmployeeName(e.target.value);
-  // };
-  // const wageChangeHandler = (e) => {
-  //   setWage(e.target.value);
-  // };
 
   const addWorkerHandler = (e) => {
-    
     e.preventDefault();
-    const enteredWorker = nameInputRef.current.value
-    const enteredWage = wageInputRef.current.value
+    const enteredWorker = nameInputRef.current.value;
+    const enteredWage = wageInputRef.current.value;
     if (nameInputRef.current.value.trim().length === 0) {
       setError({
         title: "İsim Alanı Zorunludur!",
