@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Button from "./Button";
 import Card from "./Card";
 import ReactDOM from "react-dom";
@@ -33,6 +33,22 @@ const Overlay = (props) => {
 const ErrorModal = (props) => {
   const { onConfirm, error } = props;
   const { message, title } = error;
+  const cleanupRef = useRef();
+  useEffect(() => {
+    console.log("modal oluştu");
+    return () => {
+      if (cleanupRef.current) {
+        console.log("component kaldırıldı");
+        props.setWorkers([]);
+      }
+    };
+  }, [cleanupRef]);
+
+  useEffect(() => {
+    return () => {
+      cleanupRef.current = true;
+    };
+  }, []);
   return (
     <>
       {ReactDOM.createPortal(

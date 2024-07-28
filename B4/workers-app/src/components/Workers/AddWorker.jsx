@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
 import ErrorModal from "../ui/ErrorModal";
-// import Wrapper from "../Helpers/Wrapper";
 
 function AddWorker(props) {
   const minWage = 5000;
@@ -49,7 +48,7 @@ function AddWorker(props) {
 
   return (
     <>
-      {error && <ErrorModal onConfirm={errorHandler} error={error} />}
+      {error && <ErrorModal setWorkers={props.setWorkers} onConfirm={errorHandler} error={error} />}
       <Card className="mt-8 p-5">
         <form className="flex flex-col gap-y-2" onSubmit={addWorkerHandler}>
           <label htmlFor="name" className="font-medium">
