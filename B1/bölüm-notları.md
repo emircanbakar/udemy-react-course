@@ -60,3 +60,10 @@ let object2 = {...object} //spread
 ---------------
 
 useEffect ve useRef ile alakalı çalışma yap
+
+
+vite ile react
+yarn create vite
+
+useReducer kısmını tekrarla
+switch case yapısının yazımına tekrar bak
