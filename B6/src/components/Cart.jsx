@@ -1,4 +1,8 @@
-const Cart = ({ cart, emptyCart }) => {
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+const Cart = () => {
+
+  const {cart, emptyCart} = useContext(CartContext)
   const total = cart.reduce((acc, item) => acc + item.price, 0)
 
   if (cart.length === 0) return;

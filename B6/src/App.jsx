@@ -4,16 +4,15 @@ import Header from "./components/Header";
 import Products from "./components/Products";
 
 function App() {
-
   const emptyCart = () => {
-    setCart([])
-  }
+    setCart([]);
+  };
 
   return (
     <div className="container mx-auto p-4">
-      {/* <Header cart={cart} />
-      <Products cart={cart} setCart={setCart} />
-      <Cart cart={cart} emptyCart={emptyCart} /> */}
+      <Header />
+      <Products />
+      <Cart />
     </div>
   );
 }
