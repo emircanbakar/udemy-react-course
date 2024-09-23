@@ -4,6 +4,7 @@ import Hero from "./components/Hero/Hero";
 import Header from "./components/Layout/Header";
 import Products from "./components/Products/Products";
 import CartProvider from "./context/CartProvider";
+import FormInputs from "./components/Form/FormInputs";
 
 function App() {
   const [cartIsShow, setCartIsShow] = useState(false);
